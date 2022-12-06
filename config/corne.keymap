@@ -48,6 +48,15 @@
           bindings = <&mo>, <&kp>;
       };
 
+      skq: sticky_key_with_quick_release {
+	 compatible = "zmk,behavior-sticky-key";
+         label = "STICKY_KEY_QUICK_RELEASE";
+         #binding-cells = <1>;
+         bindings = <&kp>;
+         release-after-ms = <1000>;
+         quick-release;
+      }
+
       shl: balanced_momentary_layer_tap_sticky {
           compatible = "zmk,behavior-hold-tap";
           label = "BALANCED_MOMENTARY_LAYER_TAP";
@@ -55,7 +64,7 @@
           tapping-term-ms = <200>;    // <---[[moderate duration]]
           quick-tap-ms = <150>;
           flavor = "balanced";
-          bindings = <&mo>, <&sk>;
+          bindings = <&mo>, <&skq>;
       };
 
       mlt: my_layer_tap {
