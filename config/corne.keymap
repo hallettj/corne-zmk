@@ -92,7 +92,7 @@
    &none &kp SQT       &kp COMMA  &kp DOT     &kp P       &kp Y   &kp F &kp G       &kp C       &kp R      &kp L      &none
    &none &kp A         &kp O      &kp E       &kp U       &kp I   &kp D &kp H       &kp T       &kp N      &kp S      &none
    &none &hm LALT SEMI &hm LGUI Q &hm LSHFT J &hm LCTRL K &kp X   &kp B &hm RCTRL M &hm RSHFT W &hm RGUI V &hm RALT Z &none
-                       &none  &kp SPACE  &mlt EXTEND ESC   &none  &shl SYMBOL LSHFT  &none
+                       &none  &hl KEYPAD SPACE  &mlt EXTEND ESC   &none  &shl SYMBOL LSHFT  &none
                         >;
                 };
                 keypad {
