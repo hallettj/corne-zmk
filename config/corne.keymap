@@ -28,16 +28,6 @@
           bindings = <&kp>, <&kp>;
       };
 
-      hs: balanced_homerow_shift {
-          compatible = "zmk,behavior-hold-tap";
-          label = "HOMEROW_MOD";
-          #binding-cells = <2>;
-          flavor = "balanced";
-          tapping-term-ms = <150>;    // <---[[moderate duration]]
-          quick-tap-ms = <125>;
-          bindings = <&kp>, <&kp>;
-      };
-
       hl: balanced_momentary_layer_tap {
           compatible = "zmk,behavior-hold-tap";
           label = "BALANCED_MOMENTARY_LAYER_TAP";
