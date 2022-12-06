@@ -55,7 +55,7 @@
          bindings = <&kp>;
          release-after-ms = <1000>;
          quick-release;
-      }
+      };
 
       shl: balanced_momentary_layer_tap_sticky {
           compatible = "zmk,behavior-hold-tap";
