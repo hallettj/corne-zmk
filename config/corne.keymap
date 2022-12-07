@@ -32,7 +32,7 @@
           compatible = "zmk,behavior-hold-tap";
           label = "BALANCED_MOMENTARY_LAYER_TAP";
           #binding-cells = <2>;
-          tapping-term-ms = <200>;    // <---[[moderate duration]]
+          tapping-term-ms = <200>;
           quick-tap-ms = <150>;
           flavor = "balanced";
           bindings = <&mo>, <&kp>;
@@ -51,8 +51,8 @@
           compatible = "zmk,behavior-hold-tap";
           label = "MOMENTARY_LAYER_TAP_STICKY";
           #binding-cells = <2>;
-          tapping-term-ms = <200>;    // <---[[moderate duration]]
-          quick-tap-ms = <150>;
+          tapping-term-ms = <150>;
+          quick-tap-ms = <125>;
           flavor = "balanced";
           bindings = <&mo>, <&skq>;
       };
