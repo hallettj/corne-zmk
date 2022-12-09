@@ -6,8 +6,8 @@ manifest:
       url-base: https://github.com/hallettj
   projects:
     - name: zmk
-      remote: hallettj
-      revision: shifted_keys_workaround
+      remote: zmkfirmware
+      revision: main
       import: app/west.yml
   self:
     path: config
