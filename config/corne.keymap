@@ -154,7 +154,7 @@
    &trans &s_EXCL   &s_AT    &s_HASH &s_DLLR &s_PRCNT   &s_CARET &s_UNDER     &s_QMARK  &s_ASTRK     &s_AMPS     &trans
    &trans &kp GRAVE &s_TILDE &s_LBRC &s_LPAR &kp LBKT   &kp BSLH &kp KP_MINUS &kp FSLH  &kp KP_EQUAL &kp KP_PLUS &trans
    &trans &s_LT     &s_GT    &s_RBRC &s_RPAR &kp RBKT   &s_PIPE  &kp KP_MINUS &kp FSLH  &kp KP_EQUAL &kp KP_PLUS &trans
-                             &trans  &trans  &trans     &trans   &trans       &trans
+                              &trans &kp ENTER &trans   &trans   &trans       &trans
                         >;
                 };
                 extend {
