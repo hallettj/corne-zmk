@@ -91,21 +91,21 @@
           bindings = <&mo>, <&kp>;
       };
 
-      conditional_layers {
-          compatible = "zmk,conditional-layers";
-          right_mods_with_symbol {
-            if-layers = <SYMBOL>;
-            then-layer = <MODS_RIGHT>;
-          };
-          left_mods_with_keypad {
-            if-layers = <KEYPAD>;
-            then-layer = <MODS_LEFT>;
-          };
-          left_mods_with_extend {
-            if-layers = <EXTEND>;
-            then-layer = <MODS_LEFT>;
-          };
-      };
+      /* conditional_layers { */
+      /*     compatible = "zmk,conditional-layers"; */
+      /*     right_mods_with_symbol { */
+      /*       if-layers = <SYMBOL>; */
+      /*       then-layer = <MODS_RIGHT>; */
+      /*     }; */
+      /*     left_mods_with_keypad { */
+      /*       if-layers = <KEYPAD>; */
+      /*       then-layer = <MODS_LEFT>; */
+      /*     }; */
+      /*     left_mods_with_extend { */
+      /*       if-layers = <EXTEND>; */
+      /*       then-layer = <MODS_LEFT>; */
+      /*     }; */
+      /* }; */
     };
 
     macros {
