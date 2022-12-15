@@ -100,7 +100,7 @@
         // and still have a functional space key. So I have this combo for
         // special-case, simultaneous pressing of these two keys.
         combo_esc {
-          timeout-ms = <100>;
+          timeout-ms = <30>;
           layers = <DEF_LAYER>;
           key-positions = <16 37>; // 16 is U, 37 is space/extend
           bindings = <&kp ESC>;
