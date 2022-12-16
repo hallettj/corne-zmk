@@ -12,9 +12,10 @@
 #define KEYPAD     1
 #define SYMBOL     2
 #define EXTEND     3
-#define MODS_LEFT  4
-#define MODS_RIGHT 5
-#define MOD        6
+#define F_KEYS     4
+#define MODS_LEFT  5
+#define MODS_RIGHT 6
+#define MOD        7
 
 /**
  * Shifted keys, like `&kp lpar`, do not work consistently in Gnome with
@@ -117,6 +118,10 @@
             if-layers = <KEYPAD>;
             then-layer = <MODS_LEFT>;
           };
+          left_mods_with_f_keys {
+            if-layers = <F_KEYS>;
+            then-layer = <MODS_LEFT>;
+          };
           left_mods_with_extend {
             if-layers = <EXTEND>;
             then-layer = <MODS_LEFT>;
@@ -159,10 +164,10 @@
                 };
                 keypad {
                         bindings = <
-   &trans &trans    &trans &trans  &trans  &trans   &trans &kp N7 &kp N8 &kp N9 &trans &trans
-   &trans &kp K_APP &trans &kp TAB &kp ESC &trans   &trans &kp N4 &kp N5 &kp N6 &kp N0 &trans
-   &trans &trans    &trans &trans  &trans  &trans   &trans &kp N1 &kp N2 &kp N3 &trans &trans
-                           &trans  &trans  &trans   &trans &kp ENTER &trans
+   &trans &trans    &trans     &trans  &trans  &trans   &trans &kp N7 &kp N8 &kp N9 &trans &trans
+   &trans &kp K_APP &mo F_KEYS &kp TAB &kp ESC &trans   &trans &kp N4 &kp N5 &kp N6 &kp N0 &trans
+   &trans &trans    &trans     &trans  &trans  &trans   &trans &kp N1 &kp N2 &kp N3 &trans &trans
+                               &trans  &trans  &trans   &trans &kp ENTER &trans
                         >;
                 };
                 symbol {
@@ -179,6 +184,14 @@
    &trans &trans           &caps_word &kp TAB      &kp ESC      &trans       &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &kp BKSP &trans
    &trans &trans           &trans     &trans       &trans       &trans       &trans   &trans    &trans    &trans    &kp DEL  &trans
                                       &trans       &trans       &trans       &trans   &kp ENTER &trans
+                        >;
+                };
+                f_keys {
+                        bindings = <
+   &trans &trans &trans &trans &trans &trans   &trans &kp F7 &kp F8 &kp F9 &kp F12 &trans
+   &trans &trans &trans &trans &trans &trans   &trans &kp F4 &kp F5 &kp F6 &kp F11 &trans
+   &trans &trans &trans &trans &trans &trans   &trans &kp F1 &kp F2 &kp F3 &kp F10 &trans
+                        &trans &trans &trans   &trans &trans &trans
                         >;
                 };
                 mods_left {
