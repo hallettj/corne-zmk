@@ -175,10 +175,10 @@
                 };
                 extend {
                         bindings = <
-   &trans &kp C_PLAY_PAUSE &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT    &kp HOME &kp PG_DN &kp PG_UP &kp END   &kp INS  &trans
-   &trans &trans           &trans     &kp TAB      &kp ESC      &caps_word    &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &kp BKSP &trans
-   &trans &trans           &trans     &trans       &trans       &trans        &trans   &trans    &trans    &trans    &kp DEL  &trans
-                                      &trans       &trans       &trans        &trans   &kp ENTER &trans
+   &trans &kp C_PLAY_PAUSE &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT   &kp HOME &kp PG_DN &kp PG_UP &kp END   &kp INS  &trans
+   &trans &trans           &caps_word &kp TAB      &kp ESC      &trans       &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &kp BKSP &trans
+   &trans &trans           &trans     &trans       &trans       &trans       &trans   &trans    &trans    &trans    &kp DEL  &trans
+                                      &trans       &trans       &trans       &trans   &kp ENTER &trans
                         >;
                 };
                 mods_left {
