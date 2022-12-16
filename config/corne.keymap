@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
 
 #define DEF_LAYER  0
 #define KEYPAD     1
@@ -15,7 +16,7 @@
 #define F_KEYS     4
 #define MODS_LEFT  5
 #define MODS_RIGHT 6
-#define MOD        7
+#define CONFIGURE  7
 
 /**
  * Shifted keys, like `&kp lpar`, do not work consistently in Gnome with
@@ -90,6 +91,14 @@
           flavor = "hold-preferred";
           tapping-term-ms = <300>;
           bindings = <&mo>, <&kp>;
+      };
+
+      td_mod: mod_layer_tap_dance {
+          compatible = "zmk,behavior-tap-dance";
+          label = "td_mod";
+          #binding-cells = <0>;
+          tapping-term-ms = <200>;
+          bindings = <&none>, <&mo CONFIGURE>;
       };
 
       combos {
@@ -174,7 +183,7 @@
                         bindings = <
    &trans &s_AT     &s_EXCL &kp LBKT &kp RBKT &none      &s_CARET &s_UNDER     &s_QMARK  &s_ASTRK     &s_AMPS     &trans
    &trans &kp GRAVE &s_DLLR &s_LPAR  &s_RPAR  &s_PRCNT   &kp BSLH &kp KP_MINUS &kp FSLH  &kp KP_EQUAL &kp KP_PLUS &trans
-   &trans &s_TILDE  &s_HASH &s_LBRC  &s_RBRC  &none      &s_PIPE  &trans       &trans    &trans       &trans      &trans
+   &trans &s_TILDE  &s_HASH &s_LBRC  &s_RBRC  &none      &s_PIPE  &trans       &trans    &trans       &trans      &td_mod
                              &trans  &kp ENTER  &trans   &trans  &trans  &trans
                         >;
                 };
@@ -210,17 +219,12 @@
                         &trans &trans &trans   &trans &trans   &trans
                         >;
                 };
-                mod {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+                configure {
                         bindings = <
-   &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
-                          	        &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
+   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &none        &none &none &none &none &none
+   &none      &none        &none        &none        &out OUT_USB &none          &none        &none &none &none &none &none
+   &none      &none        &none        &none        &none        &none          &out OUT_BLE &none &none &none &none &none
+                                        &none        &none        &none          &none        &none &none
                         >;
                 };
         };
