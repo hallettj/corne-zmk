@@ -173,7 +173,7 @@
                 };
                 keypad {
                         bindings = <
-   &trans &trans    &trans     &trans  &trans  &trans   &trans &kp N7 &kp N8 &kp N9 &trans   &trans
+   &trans &trans    &trans     &kp DOT &trans  &trans   &trans &kp N7 &kp N8 &kp N9 &trans   &trans
    &trans &kp K_APP &mo F_KEYS &kp TAB &kp ESC &trans   &trans &kp N4 &kp N5 &kp N6 &kp BKSP &trans
    &trans &trans    &trans     &trans  &trans  &trans   &trans &kp N1 &kp N2 &kp N3 &trans   &trans
                                &trans  &trans  &trans   &trans &kp N0 &trans
