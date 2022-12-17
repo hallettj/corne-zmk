@@ -95,14 +95,6 @@
           bindings = <&mo>, <&kp>;
       };
 
-      td_mod: mod_layer_tap_dance {
-          compatible = "zmk,behavior-tap-dance";
-          label = "td_mod";
-          #binding-cells = <0>;
-          tapping-term-ms = <200>;
-          bindings = <&none>, <&mo CONFIGURE>;
-      };
-
       combos {
         compatible = "zmk,combos";
         // I input escape by holding space, and typing U. I like to do that
@@ -197,7 +189,7 @@
                         bindings = <
    &trans &s_AT     &s_EXCL &kp LBKT &kp RBKT &none      &s_CARET &s_UNDER     &s_QMARK  &s_ASTRK     &s_AMPS     &trans
    &trans &kp GRAVE &s_DLLR &s_LPAR  &s_RPAR  &s_PRCNT   &kp BSLH &kp KP_MINUS &kp FSLH  &kp KP_EQUAL &kp KP_PLUS &trans
-   &trans &s_TILDE  &s_HASH &s_LBRC  &s_RBRC  &none      &s_PIPE  &trans       &trans    &trans       &trans      &td_mod
+   &trans &s_TILDE  &s_HASH &s_LBRC  &s_RBRC  &none      &s_PIPE  &trans       &trans    &trans       &trans      &mo CONFIGURE
                              &trans  &kp ENTER  &trans   &trans  &trans  &trans
                         >;
                 };
