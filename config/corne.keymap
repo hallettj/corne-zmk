@@ -16,10 +16,8 @@
 #define SYMBOL        4
 #define KEYPAD        5
 #define F_KEYS        6
-#define MODS_LEFT     7
-#define MODS_RIGHT    8
-#define GAMING_KEYPAD 9
-#define CONFIGURE     10
+#define GAMING_KEYPAD 7
+#define CONFIGURE     8
 
 /**
  * Shifted keys, like `&kp lpar`, do not work consistently in Gnome with
@@ -178,7 +176,7 @@
                         bindings = <
    &trans &kp C_PLAY_PAUSE &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT   &kp HOME &kp PG_DN &kp PG_UP &kp END   &kp INS  &trans
    &trans &trans           &caps_word &kp TAB      &kp ESC      &trans       &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &kp BKSP &trans
-   &trans &trans           &trans     &trans       &trans       &trans       &trans   &trans    &trans    &trans    &kp DEL  &trans
+   &trans &sk LALT         &sk LGUI   &sk LSHFT    &sk LCTRL    &trans       &trans   &trans    &trans    &trans    &kp DEL  &trans
                                                     &trans  &trans  &trans   &kp ENTER &trans  &trans
                         >;
                 };
@@ -186,16 +184,16 @@
                         bindings = <
    &trans &s_AT     &s_EXCL &kp LBKT &kp RBKT &none      &s_CARET &s_UNDER     &s_QMARK  &s_ASTRK     &s_AMPS     &trans
    &trans &kp GRAVE &s_DLLR &s_LPAR  &s_RPAR  &s_PRCNT   &kp BSLH &kp KP_MINUS &kp FSLH  &kp KP_EQUAL &kp KP_PLUS &trans
-   &trans &s_TILDE  &s_HASH &s_LBRC  &s_RBRC  &none      &s_PIPE  &trans       &trans    &trans       &trans      &mo CONFIGURE
+   &trans &s_TILDE  &s_HASH &s_LBRC  &s_RBRC  &none      &s_PIPE  &sk RCTL     &sk RSHFT &sk RGUI     &sk RALT    &mo CONFIGURE
                                 &trans  &trans  &trans   &trans  &trans  &trans
                         >;
                 };
                 keypad {
                         bindings = <
-   &trans &trans    &trans     &kp DOT &trans  &trans   &trans &kp N7 &kp N8 &kp N9 &trans &trans
-   &trans &kp K_APP &mo F_KEYS &kp TAB &kp ESC &trans   &trans &kp N4 &kp N5 &kp N6 &kp N0 &trans
-   &trans &trans    &trans     &trans  &trans  &trans   &trans &kp N1 &kp N2 &kp N3 &trans &trans
-                        &mo CONFIGURE  &trans  &trans   &trans &trans &trans
+   &trans &trans    &trans     &kp DOT   &trans    &trans   &trans &kp N7 &kp N8 &kp N9 &trans &trans
+   &trans &kp K_APP &mo F_KEYS &kp TAB   &kp ESC   &trans   &trans &kp N4 &kp N5 &kp N6 &kp N0 &trans
+   &trans &sk LALT  &sk LGUI   &sk LSHFT &sk LCTRL &trans   &trans &kp N1 &kp N2 &kp N3 &trans &trans
+                            &mo CONFIGURE  &trans  &trans   &trans &trans &trans
                         >;
                 };
                 f_keys {
@@ -204,22 +202,6 @@
    &trans &trans &trans &trans &trans &trans   &trans &kp F4 &kp F5 &kp F6 &kp F11 &trans
    &trans &trans &trans &trans &trans &trans   &trans &kp F1 &kp F2 &kp F3 &kp F10 &trans
                         &trans &trans &trans   &trans &trans &trans
-                        >;
-                };
-                mods_left {
-                        bindings = <
-   &trans &trans   &trans   &trans    &trans    &trans   &trans &trans &trans &trans &trans &trans
-   &trans &trans   &trans   &trans    &trans    &trans   &trans &trans &trans &trans &trans &trans
-   &trans &sk LALT &sk LGUI &sk LSHFT &sk LCTRL &trans   &trans &trans &trans &trans &trans &trans
-                            &trans    &trans    &trans   &trans &trans &trans
-                        >;
-                };
-                mods_right {
-                        bindings = <
-   &trans &trans &trans &trans &trans &trans   &trans &trans   &trans    &trans   &trans   &trans
-   &trans &trans &trans &trans &trans &trans   &trans &trans   &trans    &trans   &trans   &trans
-   &trans &trans &trans &trans &trans &trans   &trans &sk RCTL &sk RSHFT &sk RGUI &sk RALT &trans
-                        &trans &trans &trans   &trans &trans   &trans
                         >;
                 };
 // Override left side of keypad layer. Gaming_keypad is active when both gaming
