@@ -11,9 +11,9 @@
 
 #define DEF_LAYER     0
 #define GAMING        1
-#define KEYPAD        2
+#define EXTEND        2
 #define SYMBOL        3
-#define EXTEND        4
+#define KEYPAD        4
 #define F_KEYS        5
 #define MODS_LEFT     6
 #define MODS_RIGHT    7
@@ -112,27 +112,15 @@
       };
 
       conditional_layers {
-          compatible = "zmk,conditional-layers";
-          right_mods_with_symbol {
-            if-layers = <SYMBOL>;
-            then-layer = <MODS_RIGHT>;
-          };
-          left_mods_with_keypad {
-            if-layers = <KEYPAD>;
-            then-layer = <MODS_LEFT>;
-          };
-          left_mods_with_f_keys {
-            if-layers = <F_KEYS>;
-            then-layer = <MODS_LEFT>;
-          };
-          left_mods_with_extend {
-            if-layers = <EXTEND>;
-            then-layer = <MODS_LEFT>;
-          };
-          gaming_keypad_with_gaming {
-            if-layers = <KEYPAD GAMING>;
-            then-layer = <GAMING_KEYPAD>;
-          };
+        compatible = "zmk,conditional-layers";
+        extend_and_symbol_activate_keypad {
+          if-layers = <EXTEND SYMBOL>;
+          then-layer = <KEYPAD>;
+        };
+        gaming_keypad_with_gaming {
+          if-layers = <KEYPAD GAMING>;
+          then-layer = <GAMING_KEYPAD>;
+        };
       };
     };
 
@@ -166,7 +154,7 @@
    &none &kp SQT       &kp COMMA  &kp DOT     &kp P       &kp Y   &kp F &kp G       &kp C       &kp R      &kp L      &none
    &none &kp A         &kp O      &kp E       &kp U       &kp I   &kp D &kp H       &kp T       &kp N      &kp S      &none
    &none &hm LALT SEMI &hm LGUI Q &hm LSHFT J &hm LCTRL K &kp X   &kp B &hm RCTRL M &hm RSHFT W &hm RGUI V &hm RALT Z &none
-                            &none  &hl EXTEND SPACE  &sl KEYPAD   &skq LSHFT  &sl SYMBOL  &none
+                                   &none  &sl EXTEND  &kp SPACE   &skq LSHFT  &sl SYMBOL  &none
                         >;
                 };
                 gaming {
@@ -177,12 +165,12 @@
                         &kp BKSP &kp SPACE &trans   &trans &trans &mo EXTEND
                         >;
                 };
-                keypad {
+                extend {
                         bindings = <
-   &trans &trans    &trans     &kp DOT &trans  &trans   &trans &kp N7 &kp N8 &kp N9 &trans   &trans
-   &trans &kp K_APP &mo F_KEYS &kp TAB &kp ESC &trans   &trans &kp N4 &kp N5 &kp N6 &kp BKSP &trans
-   &trans &trans    &trans     &trans  &trans  &trans   &trans &kp N1 &kp N2 &kp N3 &trans   &trans
-                        &mo CONFIGURE  &trans  &trans   &trans &kp N0 &trans
+   &trans &kp C_PLAY_PAUSE &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT   &kp HOME &kp PG_DN &kp PG_UP &kp END   &kp INS  &trans
+   &trans &trans           &caps_word &kp TAB      &kp ESC      &trans       &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &kp BKSP &trans
+   &trans &trans           &trans     &trans       &trans       &trans       &trans   &trans    &trans    &trans    &kp DEL  &trans
+                                                    &trans  &trans  &trans   &kp ENTER &trans  &trans
                         >;
                 };
                 symbol {
@@ -190,15 +178,15 @@
    &trans &s_AT     &s_EXCL &kp LBKT &kp RBKT &none      &s_CARET &s_UNDER     &s_QMARK  &s_ASTRK     &s_AMPS     &trans
    &trans &kp GRAVE &s_DLLR &s_LPAR  &s_RPAR  &s_PRCNT   &kp BSLH &kp KP_MINUS &kp FSLH  &kp KP_EQUAL &kp KP_PLUS &trans
    &trans &s_TILDE  &s_HASH &s_LBRC  &s_RBRC  &none      &s_PIPE  &trans       &trans    &trans       &trans      &mo CONFIGURE
-                             &trans  &kp ENTER  &trans   &trans  &trans  &trans
+                                &trans  &trans  &trans   &trans  &trans  &trans
                         >;
                 };
-                extend {
+                keypad {
                         bindings = <
-   &trans &kp C_PLAY_PAUSE &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT   &kp HOME &kp PG_DN &kp PG_UP &kp END   &kp INS  &trans
-   &trans &trans           &caps_word &kp TAB      &kp ESC      &trans       &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &kp BKSP &trans
-   &trans &trans           &trans     &trans       &trans       &trans       &trans   &trans    &trans    &trans    &kp DEL  &trans
-                                      &trans       &trans       &trans       &trans   &kp ENTER &trans
+   &trans &trans    &trans     &kp DOT &trans  &trans   &trans &kp N7 &kp N8 &kp N9 &trans &trans
+   &trans &kp K_APP &mo F_KEYS &kp TAB &kp ESC &trans   &trans &kp N4 &kp N5 &kp N6 &kp N0 &trans
+   &trans &trans    &trans     &trans  &trans  &trans   &trans &kp N1 &kp N2 &kp N3 &trans &trans
+                        &mo CONFIGURE  &trans  &trans   &trans &trans &trans
                         >;
                 };
                 f_keys {
