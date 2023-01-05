@@ -10,15 +10,16 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define DEF_LAYER     0
-#define GAMING        1
-#define EXTEND        2
-#define SYMBOL        3
-#define KEYPAD        4
-#define F_KEYS        5
-#define MODS_LEFT     6
-#define MODS_RIGHT    7
-#define GAMING_KEYPAD 8
-#define CONFIGURE     9
+#define ALPHA_MODS    1
+#define GAMING        2
+#define EXTEND        3
+#define SYMBOL        4
+#define KEYPAD        5
+#define F_KEYS        6
+#define MODS_LEFT     7
+#define MODS_RIGHT    8
+#define GAMING_KEYPAD 9
+#define CONFIGURE     10
 
 /**
  * Shifted keys, like `&kp lpar`, do not work consistently in Gnome with
@@ -151,10 +152,18 @@
 
                 default_layer {
                         bindings = <
-   &none &kp SQT       &kp COMMA  &kp DOT     &kp P       &kp Y   &kp F &kp G       &kp C       &kp R      &kp L      &none
-   &none &kp A         &kp O      &kp E       &kp U       &kp I   &kp D &kp H       &kp T       &kp N      &kp S      &none
-   &none &hm LALT SEMI &hm LGUI Q &hm LSHFT J &hm LCTRL K &kp X   &kp B &hm RCTRL M &hm RSHFT W &hm RGUI V &hm RALT Z &none
-                                   &none  &sl EXTEND  &kp SPACE   &skq LSHFT  &sl SYMBOL  &none
+   &none &kp SQT  &kp COMMA  &kp DOT &kp P &kp Y   &kp F &kp G &kp C &kp R &kp L &none
+   &none &kp A    &kp O      &kp E   &kp U &kp I   &kp D &kp H &kp T &kp N &kp S &none
+   &none &kp SEMI &kp Q      &kp J   &kp K &kp X   &kp B &kp M &kp W &kp V &kp Z &none
+                    &none  &sl EXTEND  &kp SPACE   &skq LSHFT  &sl SYMBOL  &none
+                        >;
+                };
+                alpha_mods {
+                        bindings = <
+   &trans &trans        &trans     &trans      &trans      &trans   &trans &trans      &trans      &trans     &trans     &trans
+   &trans &trans        &trans     &trans      &trans      &trans   &trans &trans      &trans      &trans     &trans     &trans
+   &trans &hm LALT SEMI &hm LGUI Q &hm LSHFT J &hm LCTRL K &trans   &trans &hm RCTRL M &hm RSHFT W &hm RGUI V &hm RALT Z &none
+                                             &trans &trans &trans   &trans &trans &trans
                         >;
                 };
                 gaming {
@@ -227,9 +236,9 @@
                 };
                 configure {
                         bindings = <
-   &bt BT_CLR &bt BT_SEL 0  &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &none         &to GAMING &none &none &none &none
-   &none      &to DEF_LAYER &to GAMING   &none        &out OUT_USB &none          &to DEF_LAYER &none      &none &none &none &none
-   &none      &none         &none        &none        &none        &none          &out OUT_BLE  &none      &none &none &none &none
+   &bt BT_CLR &bt BT_SEL 0  &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &none         &to GAMING &none &none &tog ALPHA_MODS &none
+   &none      &to DEF_LAYER &to GAMING   &none        &out OUT_USB &none          &to DEF_LAYER &none      &none &none &none           &none
+   &none      &none         &none        &none        &none        &none          &out OUT_BLE  &none      &none &none &none           &none
                                          &none        &none        &none          &none         &none      &none
                         >;
                 };
