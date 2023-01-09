@@ -56,16 +56,6 @@
           bindings = <&kp>, <&kp>;
       };
 
-      hl: balanced_momentary_layer_tap {
-          compatible = "zmk,behavior-hold-tap";
-          label = "BALANCED_MOMENTARY_LAYER_TAP";
-          #binding-cells = <2>;
-          tapping-term-ms = <200>;
-          quick-tap-ms = <150>;
-          flavor = "balanced";
-          bindings = <&mo>, <&kp>;
-      };
-
       skq: sticky_key_with_quick_release {
 	 compatible = "zmk,behavior-sticky-key";
          label = "STICKY_KEY_QUICK_RELEASE";
@@ -75,22 +65,12 @@
          quick-release;
       };
 
-      shl: balanced_momentary_layer_tap_sticky {
-          compatible = "zmk,behavior-hold-tap";
-          label = "MOMENTARY_LAYER_TAP_STICKY";
-          #binding-cells = <2>;
-          tapping-term-ms = <150>;
-          quick-tap-ms = <150>;
-          flavor = "balanced";
-          bindings = <&mo>, <&skq>;
-      };
-
       mlt: my_layer_tap {
           compatible = "zmk,behavior-hold-tap";
           label = "mlt";
           #binding-cells = <2>;
           flavor = "hold-preferred";
-          tapping-term-ms = <300>;
+          tapping-term-ms = <200>;
           bindings = <&mo>, <&kp>;
       };
 
@@ -153,7 +133,7 @@
    &none &kp SQT  &kp COMMA  &kp DOT &kp P &kp Y   &kp F &kp G &kp C &kp R &kp L &none
    &none &kp A    &kp O      &kp E   &kp U &kp I   &kp D &kp H &kp T &kp N &kp S &none
    &none &kp SEMI &kp Q      &kp J   &kp K &kp X   &kp B &kp M &kp W &kp V &kp Z &none
-                &none  &kp SPACE  &hl EXTEND ESC   &skq LSHFT  &sl SYMBOL  &none
+               &none  &kp SPACE  &mlt EXTEND ESC   &skq LSHFT  &sl SYMBOL  &none
                         >;
                 };
                 alpha_mods {
