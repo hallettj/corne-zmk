@@ -74,22 +74,6 @@
           bindings = <&mo>, <&kp>;
       };
 
-      combos {
-        compatible = "zmk,combos";
-        // I input escape by holding space, and typing U. I like to do that
-        // quickly in a rolling press which the firmware interprets as a tap so
-        // it invokes the space behavior of the key instead of the layer shift.
-        // I don't think I can tweak the hold-tap settings to make this work,
-        // and still have a functional space key. So I have this combo for
-        // special-case, simultaneous pressing of these two keys.
-        combo_esc {
-          timeout-ms = <30>;
-          layers = <DEF_LAYER>;
-          key-positions = <16 37>; // 16 is U, 37 is space/extend
-          bindings = <&kp ESC>;
-        };
-      };
-
       conditional_layers {
         compatible = "zmk,conditional-layers";
         // This works when switching to the default layer, but does not work
