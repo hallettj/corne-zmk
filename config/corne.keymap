@@ -13,10 +13,10 @@
 #define ALPHA_MODS    1
 #define GAMING        2
 #define EXTEND        3
-#define SYMBOL        4
-#define KEYPAD        5
-#define F_KEYS        6
-#define GAMING_KEYPAD 7
+#define GAMING_EXTEND 4
+#define SYMBOL        5
+#define KEYPAD        6
+#define F_KEYS        7
 #define CONFIGURE     8
 
 /**
@@ -102,9 +102,9 @@
           if-layers = <EXTEND SYMBOL>;
           then-layer = <KEYPAD>;
         };
-        gaming_keypad_with_gaming {
-          if-layers = <KEYPAD GAMING>;
-          then-layer = <GAMING_KEYPAD>;
+        gaming_extend_with_gaming {
+          if-layers = <EXTEND GAMING>;
+          then-layer = <GAMING_EXTEND>;
         };
       };
     };
@@ -166,6 +166,18 @@
                                              &mo CONFIGURE  &trans  &trans   &kp ENTER &trans  &trans
                         >;
                 };
+// Override left side of extend layer. Gaming_extend is active when both gaming
+// and extend are active. The idea is to have more keys to bind in games. But
+// the movement movement keys, dot, o, e, and u, are kept the same as in the
+// default layer.
+                gaming_extend {
+                        bindings = <
+   &kp ESC   &kp L  &kp R  &kp DOT  &kp G  &kp F    &trans &trans &trans &trans &trans &trans
+   &kp MINUS &kp S  &kp O  &kp E    &kp U  &kp D    &trans &trans &trans &trans &trans &trans
+   &kp GRAVE &kp N1 &kp N2 &kp N3   &kp N4 &kp N5   &trans &trans &trans &trans &trans &trans
+                             &trans &trans &trans   &trans &trans &trans
+                        >;
+                };
                 symbol {
                         bindings = <
    &trans &s_EXCL   &s_AT   &kp LBKT &kp RBKT &none      &s_CARET &s_UNDER     &s_QMARK  &s_ASTRK     &s_AMPS     &trans
@@ -188,18 +200,6 @@
    &trans &trans &trans &trans &trans &trans   &trans &kp F4 &kp F5 &kp F6 &kp F11 &trans
    &trans &trans &trans &trans &trans &trans   &trans &kp F1 &kp F2 &kp F3 &kp F10 &trans
                         &trans &trans &trans   &trans &trans &trans
-                        >;
-                };
-// Override left side of keypad layer. Gaming_keypad is active when both gaming
-// and keypad are active. The idea is to have more keys to bind in games. But
-// the movement movement keys, dot, o, e, and u, are kept the same as in the
-// default layer.
-                gaming_keypad {
-                        bindings = <
-   &kp ESC   &kp L  &kp R  &kp DOT  &kp G  &kp F    &trans &trans &trans &trans &trans &trans
-   &kp MINUS &kp S  &kp O  &kp E    &kp U  &kp D    &trans &trans &trans &trans &trans &trans
-   &kp GRAVE &kp N1 &kp N2 &kp N3   &kp N4 &kp N5   &trans &trans &trans &trans &trans &trans
-                             &trans &trans &trans   &trans &trans &trans
                         >;
                 };
                 configure {
