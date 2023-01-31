@@ -92,6 +92,12 @@
 
       conditional_layers {
         compatible = "zmk,conditional-layers";
+        // This works when switching to the default layer, but does not work
+        // when the keyboard first boots.
+        alpha_mods_always_active {
+          if-layers = <DEF_LAYER>;
+          then-layer = <ALPHA_MODS>;
+        };
         extend_and_symbol_activate_keypad {
           if-layers = <EXTEND SYMBOL>;
           then-layer = <KEYPAD>;
