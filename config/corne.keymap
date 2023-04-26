@@ -19,31 +19,6 @@
 #define F_KEYS        7
 #define CONFIGURE     8
 
-/**
- * Shifted keys, like `&kp lpar`, do not work consistently in Gnome with
- * Wayland. I believe the problem is that ZMK sends key press and release events
- * without any delays in between, and libinput is a bit sloppy with event
- * processing order. A workaround is to define a macro which includes
- * a deliberate delay between steps. But that requires defining a separate macro
- * for each shifted key you want to map.
- *
- * This defines a preprocessor macro to make it as easy as possible to define
- * a lot of ZMK macros for shifted keys.
- */
-#define SHIFTED(sym, macro_label) s_##sym: s_##sym {\
-        label = macro_label;\
-        compatible = "zmk,behavior-macro";\
-        wait-ms = <50>;\
-        #binding-cells = <0>;\
-        bindings\
-            = <&macro_press &kp LSHFT>\
-            , <&macro_press &kp sym>\
-            , <&macro_release &kp LSHFT>\
-            , <&macro_pause_for_release>\
-            , <&macro_release &kp sym>\
-            ;\
-    }
-
 / {
     behaviors {
       hm: balanced_homerow_mods {
@@ -92,28 +67,6 @@
         };
       };
     };
-
-    macros {
-        SHIFTED(EXCL, "shifted_excl");
-        SHIFTED(AT, "shifted_at");
-        SHIFTED(HASH, "shifted_hash");
-        SHIFTED(DLLR, "shifted_dllr");
-        SHIFTED(PRCNT, "shifted_prcnt");
-        SHIFTED(CARET, "shifted_caret");
-        SHIFTED(UNDER, "shifted_under");
-        SHIFTED(QMARK, "shifted_qmark");
-        SHIFTED(ASTRK, "shifted_astrk");
-        SHIFTED(AMPS, "shifted_amps");
-        SHIFTED(TILDE, "shifted_tilde");
-        SHIFTED(LBRC, "shifted_lbrc");
-        SHIFTED(RBRC, "shifted_rbrc");
-        SHIFTED(LPAR, "shifted_lpar");
-        SHIFTED(RPAR, "shifted_rpar");
-        SHIFTED(LT, "shifted_lt");
-        SHIFTED(GT, "shifted_gt");
-        SHIFTED(PIPE, "shifted_pipe");
-    };
-
 
         keymap {
                 compatible = "zmk,keymap";
@@ -164,10 +117,10 @@
                 };
                 symbol {
                         bindings = <
-   &trans &s_EXCL   &s_AT   &kp LBKT &kp RBKT &none      &s_CARET &s_UNDER     &s_QMARK  &s_ASTRK     &s_AMPS     &trans
-   &trans &kp GRAVE &s_DLLR &s_LPAR  &s_RPAR  &s_PRCNT   &kp BSLH &kp KP_MINUS &kp FSLH  &kp KP_EQUAL &kp KP_PLUS &trans
-   &trans &s_TILDE  &s_HASH &s_LBRC  &s_RBRC  &none      &s_PIPE  &sk RCTL     &sk RSHFT &sk RGUI     &sk RALT    &mo CONFIGURE
-                                &trans  &trans  &trans   &trans  &trans  &trans
+   &trans &kp EXCL  &kp AT   &kp LBKT &kp RBKT &none       &kp CARET &kp UNDER    &kp QMARK &kp ASTRK    &kp AMPS    &trans
+   &trans &kp GRAVE &kp DLLR &kp LPAR &kp RPAR &kp PRCNT   &kp BSLH  &kp KP_MINUS &kp FSLH  &kp KP_EQUAL &kp KP_PLUS &trans
+   &trans &kp TILDE &kp HASH &kp LBRC &kp RBRC &none       &kp PIPE  &sk RCTL     &sk RSHFT &sk RGUI     &sk RALT    &mo CONFIGURE
+                                  &trans  &trans  &trans   &trans  &trans  &trans
                         >;
                 };
                 keypad {
