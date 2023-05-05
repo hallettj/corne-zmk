@@ -12,12 +12,13 @@
 #define DEF_LAYER     0
 #define ALPHA_MODS    1
 #define GAMING        2
-#define EXTEND        3
-#define GAMING_EXTEND 4
-#define SYMBOL        5
-#define KEYPAD        6
-#define F_KEYS        7
-#define CONFIGURE     8
+#define QWERTY_GAMING 3
+#define EXTEND        4
+#define GAMING_EXTEND 5
+#define SYMBOL        6
+#define KEYPAD        7
+#define F_KEYS        8
+#define CONFIGURE     9
 
 / {
     behaviors {
@@ -65,6 +66,10 @@
           if-layers = <EXTEND GAMING>;
           then-layer = <GAMING_EXTEND>;
         };
+        qwerty_gaming_implies_gaming {
+          if-layers = <QWERTY_GAMING>;
+          then-layer = <GAMING>;
+        };
       };
     };
 
@@ -93,6 +98,14 @@
    &kp LCTRL &trans   &trans &trans &trans &trans   &trans &trans &trans &trans &trans &kp ENTER
    &kp LSHFT &kp SEMI &kp Q  &kp J  &kp K  &trans   &trans &trans &trans &trans &trans &trans
                     &kp BKSP &kp SPACE &mo EXTEND   &trans &trans &trans
+                        >;
+                };
+                qwerty_gaming {
+                        bindings = <
+   &trans &trans &kp Q  &kp W  &kp E  &kp R    &trans &trans &trans &trans &trans &trans
+   &trans &trans &kp A  &kp S  &kp D  &kp F    &trans &trans &trans &trans &trans &trans
+   &trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
+                        &trans &trans &trans   &trans &trans &trans
                         >;
                 };
                 extend {
@@ -141,10 +154,10 @@
                 };
                 configure {
                         bindings = <
-   &bt BT_CLR &bt BT_SEL 0  &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &none         &to GAMING &none &none &tog ALPHA_MODS &none
-   &none      &to DEF_LAYER &to GAMING   &none        &out OUT_USB &out OUT_BLE   &to DEF_LAYER &none      &none &none &none           &none
-   &none      &none         &none        &none        &none        &none          &out OUT_BLE  &none      &none &none &none           &none
-                                         &none        &none        &none          &none         &none      &none
+   &bt BT_CLR &bt BT_SEL 0  &bt BT_SEL 1       &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &none         &to GAMING &none &none &tog ALPHA_MODS &none
+   &none      &to DEF_LAYER &to GAMING         &none        &out OUT_USB &out OUT_BLE   &to DEF_LAYER &none      &none &none &none           &none
+   &none      &none         &to QWERTY_GAMING  &none        &none        &none          &out OUT_BLE  &none      &none &none &none           &none
+                                               &none        &none        &none          &none         &none      &none
                         >;
                 };
         };
