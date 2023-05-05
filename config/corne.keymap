@@ -92,7 +92,7 @@
    &kp TAB   &trans   &trans &trans &trans &trans   &trans &trans &trans &trans &trans &kp ESC
    &kp LCTRL &trans   &trans &trans &trans &trans   &trans &trans &trans &trans &trans &kp ENTER
    &kp LSHFT &kp SEMI &kp Q  &kp J  &kp K  &trans   &trans &trans &trans &trans &trans &trans
-                        &kp BKSP &kp SPACE &trans   &trans &trans &mo EXTEND
+                    &kp BKSP &kp SPACE &mo EXTEND   &trans &trans &trans
                         >;
                 };
                 extend {
