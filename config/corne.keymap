@@ -66,9 +66,9 @@
           if-layers = <EXTEND GAMING>;
           then-layer = <GAMING_EXTEND>;
         };
-        qwerty_gaming_implies_gaming {
-          if-layers = <QWERTY_GAMING>;
-          then-layer = <GAMING>;
+        gaming_extend_with_qwerty_gaming {
+          if-layers = <EXTEND QWERTY_GAMING>;
+          then-layer = <GAMING_EXTEND>;
         };
       };
     };
@@ -94,18 +94,18 @@
                 };
                 gaming {
                         bindings = <
-   &kp TAB   &trans   &trans &trans &trans &trans   &trans &trans &trans &trans &trans &kp ESC
-   &kp LCTRL &trans   &trans &trans &trans &trans   &trans &trans &trans &trans &trans &kp ENTER
+   &kp TAB   &trans   &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
+   &kp LCTRL &trans   &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
    &kp LSHFT &kp SEMI &kp Q  &kp J  &kp K  &trans   &trans &trans &trans &trans &trans &trans
                     &kp BKSP &kp SPACE &mo EXTEND   &trans &trans &trans
                         >;
                 };
                 qwerty_gaming {
                         bindings = <
-   &trans &trans &kp Q  &kp W  &kp E  &kp R    &trans &trans &trans &trans &trans &trans
-   &trans &trans &kp A  &kp S  &kp D  &kp F    &trans &trans &trans &trans &trans &trans
-   &trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
-                        &trans &trans &trans   &trans &trans &trans
+   &kp TAB   &trans   &kp Q &kp W &kp E  &kp R   &trans &trans &trans &trans &trans &trans
+   &kp LCTRL &trans   &kp A &kp S &kp D  &kp F   &trans &trans &trans &trans &trans &trans
+   &kp LSHFT &kp SEMI &kp Z &kp X &kp C  &kp V   &trans &trans &trans &trans &trans &trans
+                 &kp BKSP &kp SPACE &mo EXTEND   &trans &trans &trans
                         >;
                 };
                 extend {
