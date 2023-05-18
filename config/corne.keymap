@@ -97,7 +97,7 @@
    &trans &trans        &trans     &trans      &trans      &trans   &trans &trans      &trans      &trans     &trans     &trans
    &trans &trans        &trans     &trans      &trans      &trans   &trans &trans      &trans      &trans     &trans     &trans
    &trans &hm LALT SEMI &hm LGUI Q &hm LSHFT J &hm LCTRL K &trans   &trans &hm RCTRL M &hm RSHFT W &hm RGUI V &hm RALT Z &none
-                                             &trans &trans &trans   &trans &trans &trans
+                                    &trans &trans &mlt EXTEND ESC   &trans &trans &trans
                         >;
                 };
                 gaming {
