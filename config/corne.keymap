@@ -75,8 +75,10 @@
         #binding-cells = <0>;
         bindings
           = <&macro_press &kp LCTRL>
-          , <&macro_tap &kp W>
+          , <&macro_press &kp W>
           , <&macro_release &kp LCTRL>
+          , <&macro_pause_for_release>
+          , <&macro_release &kp W>
           ;
       };
     };
