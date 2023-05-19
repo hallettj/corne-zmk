@@ -67,22 +67,6 @@
       };
     };
 
-    macros {
-      // ctrl-w is a frequently-used window management leader in vim/neovim
-      ctrl_w: ctrl_w {
-        label = "ctrl_w";
-        compatible = "zmk,behavior-macro";
-        #binding-cells = <0>;
-        bindings
-          = <&macro_press &kp LCTRL>
-          , <&macro_press &kp W>
-          , <&macro_release &kp LCTRL>
-          , <&macro_pause_for_release>
-          , <&macro_release &kp W>
-          ;
-      };
-    };
-
         keymap {
                 compatible = "zmk,keymap";
 
@@ -120,9 +104,9 @@
                 };
                 extend {
                         bindings = <
-   &trans &kp C_PLAY_PAUSE &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT   &kp PG_UP &kp HOME &kp UP   &kp END   &kp INS  &trans
-   &trans &key_repeat      &caps_word &kp TAB      &kp ESC      &trans       &kp PG_DN &kp LEFT &kp DOWN &kp RIGHT &kp BKSP &trans
-   &trans &sk LALT         &sk LGUI   &sk LSHFT    &sk LCTRL    &trans       &trans    &trans   &ctrl_w  &kp LGUI  &kp DEL  &trans
+   &trans &kp C_PLAY_PAUSE &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT   &kp PG_UP &kp HOME &kp UP    &kp END   &kp INS  &trans
+   &trans &key_repeat      &caps_word &kp TAB      &kp ESC      &trans       &kp PG_DN &kp LEFT &kp DOWN  &kp RIGHT &kp BKSP &trans
+   &trans &sk LALT         &sk LGUI   &sk LSHFT    &sk LCTRL    &trans       &trans    &trans   &kp LC(W) &kp LGUI  &kp DEL  &trans
                                              &mo CONFIGURE  &trans  &trans   &kp ENTER &trans  &trans
                         >;
                 };
