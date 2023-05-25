@@ -50,6 +50,14 @@
             bindings = <&mo>, <&kp>;
         };
 
+        shift_caps: sticky_shift_caps_word {
+            compatible = "zmk,behavior-tap-dance";
+            label = "sticky_shift_caps_word";
+            #binding-cells = <0>;
+            tapping-term-ms = <150>;
+            bindings = <&skq LSHFT>, <&caps_word>;
+        };
+
         conditional_layers {
             compatible = "zmk,conditional-layers";
             extend_and_symbol_activate_keypad {
