@@ -1,1 +1,4 @@
 firmware/
+
+# Nix stuff
+.direnv/
