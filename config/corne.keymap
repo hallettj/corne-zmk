@@ -114,7 +114,7 @@
                         bindings = <
    &trans &kp C_PLAY_PAUSE &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT   &kp PG_UP &kp HOME &kp UP    &kp END   &kp INS  &trans
    &trans &key_repeat      &caps_word &kp TAB      &kp ESC      &trans       &kp PG_DN &kp LEFT &kp DOWN  &kp RIGHT &kp BKSP &trans
-   &trans &sk LALT         &sk LGUI   &sk LSHFT    &sk LCTRL    &trans       &trans    &trans   &kp LC(W) &kp LGUI  &kp DEL  &trans
+   &trans &sk LALT         &sk LGUI   &sk LSHFT    &sk LCTRL    &trans       &trans    &trans   &trans    &kp LGUI  &kp DEL  &trans
                                              &mo CONFIGURE  &trans  &trans   &kp ENTER &trans  &trans
                         >;
                 };
