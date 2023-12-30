@@ -1,4 +1,4 @@
-TIMESTAMP := $(shell date -u +"%Y%m%d%H%M%S")
+TIMESTAMP := $(shell date -u +"%Y-%m-%d_%H%M%S")
 DOCKER := $(shell { command -v podman || command -v docker; })
 
 .PHONY: clean setup

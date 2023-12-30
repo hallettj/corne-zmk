@@ -3,26 +3,31 @@
 set -euo pipefail
 
 PWD=$(pwd)
-TIMESTAMP="${TIMESTAMP:-$(date -u +"%Y%m%d%H%M%S")}"
+TIMESTAMP="${TIMESTAMP:-$(date -u +"%Y-%m-%d_%H%M%S")}"
 
 function build() {
-  local side="$1"
+  local board="$1"
+  local shield="$2"
   west build \
     -s zmk/app \
-    -d build/"${side}" \
-    -b nice_nano_v2 \
+    -d build/"$shield" \
+    -b "$board" \
     -- \
     -DZMK_CONFIG="${PWD}/config" \
-    -DSHIELD="corne_${side}"
-  grep -v -e "^#" -e "^$" "build/${side}/zephyr/.config" | sort
+    -DSHIELD="$shield"
+  grep -v -e "^#" -e "^$" "build/${shield}/zephyr/.config" | sort
 }
 
 function copy() {
-  local side="$1"
-  cp "build/${side}/zephyr/zmk.uf2" "./firmware/${TIMESTAMP}-${side}.uf2"
+  local shield="$1"
+  local output="./firmware/${TIMESTAMP}-${shield}.uf2"
+  cp "build/${shield}/zephyr/zmk.uf2" "$output"
+  chown 1000:100 "$output"
 }
 
-build left
-build right
-copy left
-copy right
+build nice_nano_v2 corne_left
+build nice_nano_v2 corne_right
+build nice_nano_v2 settings_reset
+copy corne_left
+copy corne_right
+copy settings_reset
