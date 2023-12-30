@@ -27,7 +27,10 @@ function copy() {
 
 build nice_nano_v2 corne_left
 build nice_nano_v2 corne_right
-build nice_nano_v2 settings_reset
 copy corne_left
 copy corne_right
-copy settings_reset
+
+# Uncomment to build reset firmware in case of trouble pairing left and right
+# halves:
+# build nice_nano_v2 settings_reset
+# copy settings_reset
