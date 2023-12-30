@@ -15,6 +15,8 @@ firmware/%-left.uf2 firmware/%-right.uf2: config/corne.keymap
 		-v $(PWD)/firmware:/app/firmware \
 		-v $(PWD)/config:/app/config:ro \
 		-e TIMESTAMP=$(TIMESTAMP) \
+		-e OWNER_ID=$$(id -u) \
+		-e GROUP_ID=$$(id -g) \
 		zmk-corne
 
 setup: Dockerfile bin/build.sh config/west.yml
