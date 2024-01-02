@@ -132,9 +132,9 @@
                 };
                 symbol {
                         bindings = <
-   &trans &kp EXCL  &kp AT   &kp LBKT &kp RBKT &none       &kp CARET &kp UNDER    &kp QMARK &kp ASTRK    &kp AMPS    &trans
-   &trans &kp GRAVE &kp DLLR &kp LPAR &kp RPAR &kp PRCNT   &kp BSLH  &kp KP_MINUS &kp FSLH  &kp KP_EQUAL &kp KP_PLUS &trans
-   &trans &kp TILDE &kp HASH &kp LBRC &kp RBRC &none       &kp PIPE  &sk RCTL     &sk RSHFT &sk RGUI     &sk RALT    &mo CONFIGURE
+   &trans &kp EXCL  &kp AT   &kp LBKT &kp RBKT &none       &kp CARET &kp UNDER &kp QMARK &kp ASTRK &kp AMPS &trans
+   &trans &kp GRAVE &kp DLLR &kp LPAR &kp RPAR &kp PRCNT   &kp BSLH  &kp MINUS &kp FSLH  &kp EQUAL &kp PLUS &trans
+   &trans &kp TILDE &kp HASH &kp LBRC &kp RBRC &none       &kp PIPE  &sk RCTL  &sk RSHFT &sk RGUI  &sk RALT &mo CONFIGURE
                                   &trans  &trans  &trans   &trans  &trans  &trans
                         >;
                 };
