@@ -10,15 +10,14 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define DEF_LAYER     0
-#define ALPHA_MODS    1
-#define GAMING        2
-#define QWERTY_GAMING 3
-#define EXTEND        4
-#define GAMING_EXTEND 5
-#define SYMBOL        6
-#define KEYPAD        7
-#define F_KEYS        8
-#define CONFIGURE     9
+#define GAMING        1
+#define QWERTY_GAMING 2
+#define EXTEND        3
+#define GAMING_EXTEND 4
+#define SYMBOL        5
+#define KEYPAD        6
+#define F_KEYS        7
+#define CONFIGURE     8
 
 / {
     behaviors {
@@ -80,18 +79,10 @@
 
                 default_layer {
                         bindings = <
-   &none &kp SQT  &kp COMMA  &kp DOT &kp P &kp Y   &kp F &kp G &kp C &kp R &kp L &none
-   &none &kp A    &kp O      &kp E   &kp U &kp I   &kp D &kp H &kp T &kp N &kp S &none
-   &none &kp SEMI &kp Q      &kp J   &kp K &kp X   &kp B &kp M &kp W &kp V &kp Z &none
-                    &none  &kp SPACE  &mo EXTEND   &shift_caps  &sl SYMBOL  &none
-                        >;
-                };
-                alpha_mods {
-                        bindings = <
-   &trans &trans        &trans     &trans      &trans      &trans   &trans &trans      &trans      &trans     &trans     &trans
-   &trans &trans        &trans     &trans      &trans      &trans   &trans &trans      &trans      &trans     &trans     &trans
-   &trans &hm LALT SEMI &hm LGUI Q &hm LSHFT J &hm LCTRL K &trans   &trans &hm RCTRL M &hm RSHFT W &hm RGUI V &hm RALT Z &none
-                                             &trans &trans &trans   &trans &trans &trans
+   &none &kp SQT       &kp COMMA  &kp DOT     &kp P       &kp Y   &kp F &kp G       &kp C       &kp R      &kp L      &none
+   &none &kp A         &kp O      &kp E       &kp U       &kp I   &kp D &kp H       &kp T       &kp N      &kp S      &none
+   &none &hm LALT SEMI &hm LGUI Q &hm LSHFT J &hm LCTRL K &kp X   &kp B &hm RCTRL M &hm RSHFT W &hm RGUI V &hm RALT Z &none
+                                    &none  &kp SPACE  &mo EXTEND   &shift_caps  &sl SYMBOL  &none
                         >;
                 };
                 gaming {
@@ -156,9 +147,9 @@
                 };
                 configure {
                         bindings = <
-   &bt BT_CLR &bt BT_SEL 0  &bt BT_SEL 1       &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &none         &to GAMING &none &none &tog ALPHA_MODS &none
-   &none      &to DEF_LAYER &to GAMING         &none        &out OUT_USB &out OUT_BLE   &to DEF_LAYER &none      &none &none &none           &none
-   &none      &none         &to QWERTY_GAMING  &none        &none        &none          &out OUT_BLE  &none      &none &none &none           &none
+   &bt BT_CLR &bt BT_SEL 0  &bt BT_SEL 1       &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &none         &to GAMING &none &none &none &none
+   &none      &to DEF_LAYER &to GAMING         &none        &out OUT_USB &out OUT_BLE   &to DEF_LAYER &none      &none &none &none &none
+   &none      &none         &to QWERTY_GAMING  &none        &none        &none          &out OUT_BLE  &none      &none &none &none &none
                                                &none        &none        &none          &none         &none      &none
                         >;
                 };
