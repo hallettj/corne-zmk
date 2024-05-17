@@ -1,4 +1,8 @@
-firmware/
-
-# Nix stuff
+/.west
+/modules
+/zephyr
+/zmk
+/build
+/firmware
+/result
 .direnv/

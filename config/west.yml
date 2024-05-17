@@ -2,12 +2,33 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: hallettj
-      url-base: https://github.com/hallettj
   projects:
+    - name: zephyr
+      remote: zmkfirmware
+      revision: 8f87b3be1e7631332cd8b245fb94d24d0354d0cb  # v3.5.0+zmk-fixes
+      import:
+        name-blocklist:
+          - ci-tools
+          - hal_altera
+          - hal_cypress
+          - hal_infineon
+          - hal_microchip
+          - hal_nxp
+          - hal_openisa
+          - hal_silabs
+          - hal_xtensa
+          - hal_st
+          - hal_ti
+          - loramac-node
+          - mcuboot
+          - mcumgr
+          - net-tools
+          - openthread
+          - edtt
+          - trusted-firmware-m
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      revision: 2ee76be6fee671042d9740ac0271eb69e2558165  # main
       import: app/west.yml
   self:
     path: config
