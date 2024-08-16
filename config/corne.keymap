@@ -10,18 +10,21 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define DEF_LAYER     0
-#define GAMING        1
-#define QWERTY_GAMING 2
-#define STARCRAFT     3
-#define EXTEND        4
-#define GAMING_EXTEND 5
-#define SYMBOL        6
-#define KEYPAD        7
-#define F_KEYS        8
-#define CONFIGURE     9
+#define SENTENCE      1
+#define GAMING        2
+#define QWERTY_GAMING 3
+#define STARCRAFT     4
+#define EXTEND        5
+#define GAMING_EXTEND 6
+#define SYMBOL        7
+#define KEYPAD        8
+#define F_KEYS        9
+#define CONFIGURE     10
+
+#include "chords.keymap"
 
 / {
-    behaviors {
+  behaviors {
         hm: balanced_homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MOD";
@@ -77,10 +80,44 @@
                then-layer = <KEYPAD>;
             };
        };
-    };
+  };
+};
 
-        keymap {
-                compatible = "zmk,keymap";
+/ {
+  macros {
+    // These sentence macros are used with macro-chording, and are taken from
+    // sartak's zmk config
+    // https://github.com/sartak/zmk-config
+    sentence_dot: sentence_dot {
+      label = "sentence_dot";
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      tap-ms = <1>;
+      wait-ms = <1>;
+      bindings = <&kp BSPC &kp DOT &kp SPC &sk LSHFT>;
+    };
+    sentence_comma: sentence_comma {
+      label = "sentence_comma";
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      tap-ms = <1>;
+      wait-ms = <1>;
+      bindings = <&kp BSPC &kp COMMA &kp SPC>;
+    };
+    sentence_apos: sentence_apos {
+      label = "sentence_apos";
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      tap-ms = <1>;
+      wait-ms = <1>;
+      bindings = <&kp BSPC &kp APOS>;
+    };
+  };
+};
+
+/ {
+  keymap {
+    compatible = "zmk,keymap";
 
                 default_layer {
                         bindings = <
@@ -88,6 +125,14 @@
    &none &kp A         &kp O      &kp E       &kp U       &kp I   &kp D &kp H       &kp T       &kp N      &kp S      &none
    &none &hm LALT SEMI &hm LGUI Q &hm LSHFT J &hm LCTRL K &kp X   &kp B &hm RCTRL M &hm RSHFT W &hm RGUI V &hm RALT Z &none
                                     &none  &kp SPACE  &mo EXTEND   &shift_caps  &sl SYMBOL  &none
+                        >;
+                };
+                sentence {
+                        bindings = <
+   &trans &sentence_apos &sentence_comma &sentence_dot &trans &trans   &trans &trans &trans &trans &trans &trans
+   &trans &trans         &trans          &trans        &trans &trans   &trans &trans &trans &trans &trans &trans
+   &trans &trans         &trans          &trans        &trans &trans   &trans &trans &trans &trans &trans &trans
+                                                &trans &trans &trans   &trans &trans &trans
                         >;
                 };
                 gaming {
