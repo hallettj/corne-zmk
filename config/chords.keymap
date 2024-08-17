@@ -19,21 +19,10 @@
     label = #name; \
     compatible = "zmk,behavior-macro"; \
     #binding-cells = <0>; \
-    tap-ms = <1>; \
+    tap-ms = <10>; \
     wait-ms = <1>; \
     bindings = <keys>, <&sl SENTENCE>; \
   };
-
-// #define CHORD(name, input, output) \
-//   / { \
-//     combos { \
-//       compatible = "zmk,combos"; \
-//       LAYER_CHORD(ch_##name, &ch_##name, input, DEF_LAYER SENTENCE) \
-//     }; \
-//     macros { \
-//       CHMAC(ch_##name, output) \
-//     }; \
-//   };
 
 // #define GET_MACRO_OVERLOAD(_1, _2, _3, _4, _5, _6, _7, NAME, ...): NAME
 //
@@ -47,8 +36,6 @@
 #define CH_OUT7(k1, k2, k3, k4, k5, k6, k7) &kp k1 &kp k2 &kp k3 &kp k4 &kp k5 &kp k6 &kp k7 &kp SPC
 #define CH_OUT8(k1, k2, k3, k4, k5, k6, k7, k8) &kp k1 &kp k2 &kp k3 &kp k4 &kp k5 &kp k6 &kp k7 &kp k8 &kp SPC
 #define CH_OUT9(k1, k2, k3, k4, k5, k6, k7, k8, k9) &kp k1 &kp k2 &kp k3 &kp k4 &kp k5 &kp k6 &kp k7 &kp k8 &kp k9 &kp SPC
-
-// #define CH_OUT(k1, k2, k3, k4, k5, k6, k7) &kp k1 &kp k2 &kp k3 &kp k4 &kp k5 &kp k6 &kp k7 &kp SPC
 
 // Definitions to use with configurations that require key positions instead of
 // symbols
@@ -466,23 +453,3 @@
     CHMAC(ch_your, CH_OUT4(Y,O,U,R))
   };
 };
-
-// CHORD(because, _B _C,          CH_OUT(B, E, C, A, U, S, E))
-
-// CHORD(about,   _A _B _O _U _T, &kp A)
-// CHORD(because, _B _C,          &kp B)
-
-// / {
-//   combos {
-//     compatible = "zmk,combos";
-//
-//     // CHORD(ch_about, &ch_about, P_A P_B P_O P_U P_T)
-//     // CHORD(ch_above, &ch_above, P_A P_B P_O P_V P_E)
-//     // CHORD(ch_after, &ch_after, P_A P_F P_T P_E P_R)
-//   };
-// };
-//
-// / {
-//   macros {
-//   };
-// };
