@@ -216,7 +216,7 @@
                         bindings = <
    &bt BT_CLR &bt BT_SEL 0  &bt BT_SEL 1       &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &none         &to GAMING &to DISABLE_CHORDS &none &none         &none
    &none      &to DEF_LAYER &to GAMING         &none        &out OUT_USB &out OUT_BLE   &to DEF_LAYER &none      &none              &none &to STARCRAFT &none
-   &none      &none         &to QWERTY_GAMING  &none        &none        &none          &out OUT_BLE  &none      &none              &none &none         &none
+   &none      &none         &to QWERTY_GAMING  &none        &none        &soft_off      &out OUT_BLE  &none      &none              &none &none         &none
                                                &none        &none        &none          &none         &none      &none
                         >;
                 };
