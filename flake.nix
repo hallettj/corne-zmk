@@ -15,7 +15,7 @@
       pkgs = system: nixpkgs.legacyPackages.${system};
       zmk-pkgs = system: zmk-nix.legacyPackages.${system} // zmk-nix.packages.${system};
 
-      zephyrDepsHash = "sha256-E/IoN2l7MLdolkXHvfq28oC9Twf6PODbl079yykk7UQ=";
+      zephyrDepsHash = "sha256-71oep/6i03b46i2H+2+qOqRXbLWAReLDifYtYRczACA=";
       src = nixpkgs.lib.sourceFilesBySuffices self [ ".conf" ".keymap" ".yml" ];
     in
     {
