@@ -10,19 +10,15 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define DEF_LAYER      0
-#define SENTENCE       1
-#define DISABLE_CHORDS 2
-#define GAMING         3
-#define QWERTY_GAMING  4
-#define STARCRAFT      5
-#define EXTEND         6
-#define GAMING_EXTEND  7
-#define SYMBOL         8
-#define KEYPAD         9
-#define F_KEYS         10
-#define CONFIGURE      11
-
-#include "chords.keymap"
+#define GAMING         1
+#define QWERTY_GAMING  2
+#define STARCRAFT      3
+#define EXTEND         4
+#define GAMING_EXTEND  5
+#define SYMBOL         6
+#define KEYPAD         7
+#define F_KEYS         8
+#define CONFIGURE      9
 
 / {
   behaviors {
@@ -85,38 +81,6 @@
 };
 
 / {
-  macros {
-    // These sentence macros are used with macro-chording, and are taken from
-    // sartak's zmk config
-    // https://github.com/sartak/zmk-config
-    sentence_dot: sentence_dot {
-      label = "sentence_dot";
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      tap-ms = <1>;
-      wait-ms = <1>;
-      bindings = <&kp BSPC &kp DOT &kp SPC &sk LSHFT>;
-    };
-    sentence_comma: sentence_comma {
-      label = "sentence_comma";
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      tap-ms = <1>;
-      wait-ms = <1>;
-      bindings = <&kp BSPC &kp COMMA &kp SPC>;
-    };
-    sentence_apos: sentence_apos {
-      label = "sentence_apos";
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      tap-ms = <1>;
-      wait-ms = <1>;
-      bindings = <&kp BSPC &kp APOS>;
-    };
-  };
-};
-
-/ {
   keymap {
     compatible = "zmk,keymap";
 
@@ -126,22 +90,6 @@
    &none &kp A         &kp O      &kp E       &kp U       &kp I   &kp D &kp H       &kp T       &kp N      &kp S      &none
    &none &hm LALT SEMI &hm LGUI Q &hm LSHFT J &hm LCTRL K &kp X   &kp B &hm RCTRL M &hm RSHFT W &hm RGUI V &hm RALT Z &none
                                     &none  &kp SPACE  &mo EXTEND   &shift_caps  &sl SYMBOL  &none
-                        >;
-                };
-                sentence {
-                        bindings = <
-   &trans &sentence_apos &sentence_comma &sentence_dot &trans &trans   &trans &trans &trans &trans &trans &trans
-   &trans &trans         &trans          &trans        &trans &trans   &trans &trans &trans &trans &trans &trans
-   &trans &trans         &trans          &trans        &trans &trans   &trans &trans &trans &trans &trans &trans
-                                                &trans &trans &trans   &trans &trans &trans
-                        >;
-                };
-                disable_chords {
-                        bindings = <
-   &trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
-   &trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
-   &trans &trans &trans &trans &trans &trans   &trans &trans &trans &trans &trans &trans
-                        &trans &trans &trans   &trans &trans &trans
                         >;
                 };
                 gaming {
@@ -214,9 +162,9 @@
                 };
                 configure {
                         bindings = <
-   &bt BT_CLR &bt BT_SEL 0  &bt BT_SEL 1       &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &none         &to GAMING &to DISABLE_CHORDS &none &none         &none
-   &none      &to DEF_LAYER &to GAMING         &none        &out OUT_USB &out OUT_BLE   &to DEF_LAYER &none      &none              &none &to STARCRAFT &none
-   &none      &none         &to QWERTY_GAMING  &none        &none        &soft_off      &out OUT_BLE  &none      &none              &none &none         &none
+   &bt BT_CLR &bt BT_SEL 0  &bt BT_SEL 1       &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &none         &to GAMING &none &none &none         &none
+   &none      &to DEF_LAYER &to GAMING         &none        &out OUT_USB &out OUT_BLE   &to DEF_LAYER &none      &none &none &to STARCRAFT &none
+   &none      &none         &to QWERTY_GAMING  &none        &none        &soft_off      &out OUT_BLE  &none      &none &none &none         &none
                                                &none        &none        &none          &none         &none      &none
                         >;
                 };
