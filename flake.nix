@@ -1,11 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-
-    zmk-nix = {
-      url = "github:lilyinstarlight/zmk-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    zmk-nix.url = "github:lilyinstarlight/zmk-nix";
   };
 
   outputs = { self, nixpkgs, zmk-nix }:
@@ -15,8 +11,8 @@
       pkgs = system: nixpkgs.legacyPackages.${system};
       zmk-pkgs = system: zmk-nix.legacyPackages.${system} // zmk-nix.packages.${system};
 
-      zephyrDepsHash = "sha256-71oep/6i03b46i2H+2+qOqRXbLWAReLDifYtYRczACA=";
-      src = nixpkgs.lib.sourceFilesBySuffices self [ ".conf" ".keymap" ".yml" ];
+      zephyrDepsHash = "sha256-UWkGqWTnYq0iUv8KogYLz2A4oV0WgTK/3WKhL52fZyM=";
+      src = nixpkgs.lib.sourceFilesBySuffices self [ ".board" ".cmake" ".conf" ".defconfig" ".dts" ".dtsi" ".json" ".keymap" ".overlay" ".shield" ".yml" "_defconfig" ];
     in
     {
       packages = eachSystem (zmk-pkgs: pkgs: rec {
@@ -28,8 +24,6 @@
 
           board = "nice_nano_v2";
           shield = "corne_%PART%";
-
-          nativeBuildInputs = with pkgs; [ dtc ];
 
           meta = {
             description = "ZMK firmware";
@@ -44,8 +38,6 @@
 
           board = "nice_nano_v2";
           shield = "settings_reset";
-
-          nativeBuildInputs = with pkgs; [ dtc ];
 
           meta = {
             description = "ZMK firmware settings reset";
