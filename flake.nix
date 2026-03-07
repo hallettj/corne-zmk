@@ -27,7 +27,7 @@
 
       # Make sure to set this to nixpkgs.lib.fakeHash after making changes to
       # west.yml to avoid getting stale dependencies.
-      zephyrDepsHash = "sha256-Uw3Vrb2AjKcVUIatBywr+emfPQoXql0UZYVH3VQgUTE=";
+      zephyrDepsHash = "sha256-gsqiTDJLAihVyBXVFlgXwqRmlREcFJctKpl4tEWmVlY=";
 
       src = nixpkgs.lib.sourceFilesBySuffices self [
         ".board"
@@ -57,7 +57,7 @@
               name = "corne-firmware";
               inherit src zephyrDepsHash;
 
-              board = "nice_nano@2.0.0//zmk";
+              board = "nice_nano_v2";
               shield = "corne_%PART%";
               enableZmkStudio = false;
 
@@ -74,11 +74,7 @@
               name = "corne-mini-firmware";
               inherit src zephyrDepsHash;
 
-              # Since a ZMK refactor on 2026-02-12 it is necessary to specify
-              # the board variant using the //zmk suffix in order for the
-              # nice_view_adapter and nice_view shield overlays to set up
-              # correctly.
-              board = "nice_nano@2.0.0//zmk";
+              board = "nice_nano_v2";
               shield = "corne_%PART% nice_view_adapter nice_view";
               extraCmakeFlags = [ "-DEXTRA_CONF_FILE=/build/source/config/corne_display.conf" ];
               enableZmkStudio = false;
