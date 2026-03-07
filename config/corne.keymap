@@ -172,7 +172,7 @@
                         >;
                 };
                 configure {
-                        display-name = "Configure";
+                        display-name = "Config";
                         bindings = <
    &bt BT_CLR &bt BT_SEL 0    &bt BT_SEL 1       &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &none         &to GAMING &none &none &bootloader   &none
    &none      &none           &to GAMING         &none        &out OUT_USB &out OUT_BLE   &to DEF_LAYER &none      &none &none &to STARCRAFT &none
