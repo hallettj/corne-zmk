@@ -125,10 +125,10 @@
                 extend {
                         display-name = "Extend";
                         bindings = <
-   &trans &kp C_PLAY_PAUSE &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT   &kp PG_UP       &kp HOME &kp UP   &kp END   &kp INS  &trans
-   &trans &key_repeat      &trans     &kp TAB      &kp ESC      &trans       &kp PG_DN       &kp LEFT &kp DOWN &kp RIGHT &kp BKSP &trans
-   &trans &kp LALT         &kp LGUI   &kp LSHFT    &kp LCTRL    &trans       &kp PRINTSCREEN &trans   &trans   &kp LGUI  &kp DEL  &trans
-                                             &mo CONFIGURE  &trans  &trans   &kp ENTER &trans  &trans
+   &trans &kp C_PLAY_PAUSE &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT                 &kp PG_UP       &kp HOME &kp UP   &kp END   &kp INS  &trans
+   &trans &key_repeat      &trans     &kp TAB      &kp ESC      &kp C_BRIGHTNESS_INC       &kp PG_DN       &kp LEFT &kp DOWN &kp RIGHT &kp BKSP &trans
+   &trans &kp LALT         &kp LGUI   &kp LSHFT    &kp LCTRL    &kp C_BRIGHTNESS_DEC       &kp PRINTSCREEN &trans   &trans   &kp LGUI  &kp DEL  &trans
+                                         &mo CONFIGURE  &trans  &trans                     &kp ENTER &trans  &trans
                         >;
                 };
 // Override left side of extend layer. Gaming_extend is active when both gaming
